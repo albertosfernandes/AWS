@@ -1,0 +1,1 @@
+aws elbv2 describe-rules --listener-arn arn:aws:elasticloadbalancing:us-east-1:348334034331:listener/app/app-external-prod/2d91cc3f8234e1bb/b65d746dad61f1e5

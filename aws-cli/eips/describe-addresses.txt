@@ -1,0 +1,1 @@
+aws ec2 describe-addresses --filters Name=instance-id,Values=i* > eips_instanceIdAllocated.json

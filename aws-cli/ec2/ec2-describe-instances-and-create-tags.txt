@@ -1,0 +1,18 @@
+aws ec2 describe-instances --filters "Name=tag:24-7,Values=yes" "Name=instance-state-code,Values=16" --query "Reservations[].Instances[].{InstanceId:[InstanceId]}" --output text | grep INSTANCEID | awk '{print $2}' | while read line; do aws ec2 create-tags --resources $line --tags Key=reserved,Value=yes; done;
+
+
+
+# Filter madrugada=off
+aws ec2 describe-instances --filters "Name=tag:madrugada,Values=off" --query "Reservations[].Instances[].{InstanceId:[InstanceId]}" --output text | grep INSTANCEID | awk '{print $2}' | while read line; do aws ec2 create-tags --resources $line --tags Key=reserved,Value=no; done;
+
+# Filter ondemand=yes
+aws ec2 describe-instances --filters "Name=tag:ondemand,Values=yes" --query "Reservations[].Instances[].{InstanceId:[InstanceId]}" --output text | grep INSTANCEID | awk '{print $2}' | while read line; do aws ec2 create-tags --resources $line --tags Key=reserved,Value=no; done;
+
+# Filter Name=DTSEEKR*
+aws ec2 describe-instances --filters "Name=tag:Name,Values=DTSEEKR*" --query "Reservations[].Instances[].{InstanceId:[InstanceId]}" --output text | grep INSTANCEID | awk '{print $2}' | while read line; do aws ec2 create-tags --resources $line --tags Key=reserved,Value=yes; done;
+
+# Filter Name=c1-prod*
+aws ec2 describe-instances --filters "Name=tag:Name,Values=c1-prod" --query "Reservations[].Instances[].{InstanceId:[InstanceId, Tags[?Key=='Name']]}" --output text | grep INSTANCEID | awk '{print $2}' | while read line; do aws ec2 create-tags --resources $line --tags Key=reserved,Value=yes; done;
+
+# Filter 
+aws ec2 describe-instances --filters "Name=tag:Name,Values=HISQL*" --query "Reservations[].Instances[].{InstanceId:[InstanceId]}" --output text | grep INSTANCEID | awk '{print $2}' | while read line; do aws ec2 create-tags --resources $line --tags Key=reserved,Value=yes; done;

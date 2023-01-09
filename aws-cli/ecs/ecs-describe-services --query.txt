@@ -1,0 +1,5 @@
+aws ecs describe-services --cluster Cluster2 --services WhatsAppEnterprise-5511972617014-WAEntService-Xjm3q9n43vqk --query "services[].loadBalancers"
+
+aws ecs describe-services --cluster Cluster2 --services WhatsAppEnterprise-5511972617014-WAEntService-Xjm3q9n43vqk --query "services[].loadBalancers[].{loadBalancerName:loadBalancerName}" --output text
+
+aws ecs describe-services --cluster Cluster3 --services $line --query "services[].loadBalancers[].{loadBalancerName:loadBalancerName}" --output text

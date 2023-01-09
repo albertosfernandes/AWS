@@ -1,0 +1,2 @@
+## aws describe-volumes
+aws ec2 describe-volumes --volume-ids vol-09ecdf20382161262 --query "Volumes[].{Attachments:Attachments[].{VolumeId:VolumeId},Tags:Tags[]}"

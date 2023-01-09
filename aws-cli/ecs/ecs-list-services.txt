@@ -1,0 +1,7 @@
+aws ecs list-services --cluster Cluster2 --output text | awk -F'/Cluster2/' '{print $2}'
+
+aws ecs list-services --cluster Cluster3 --output text | awk -F'/Cluster3/' '{print $2}'
+
+aws ecs list-services --cluster Cluster4 --output text | awk -F'/Cluster4/' '{print $2}'
+
+aws ecs list-services --cluster Cluster5 --output text | awk -F'/Cluster5/' '{print $2}'

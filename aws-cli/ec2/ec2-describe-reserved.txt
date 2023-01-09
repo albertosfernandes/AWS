@@ -1,0 +1,3 @@
+aws ec2 describe-reserved-instances --filters "Name=state","Values=active" >> list_of_reservations.json
+
+aws ec2 describe-reserved-instances --filters "Name=state","Values=active" --query "ReservedInstances[].{InstancesReservation:[InstanceCount, InstanceType, End, ReservedInstancesId]}"
