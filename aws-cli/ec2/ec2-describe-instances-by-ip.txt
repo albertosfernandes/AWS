@@ -1,1 +1,1 @@
-aws ec2 describe-instances --filters Name=private-ip-address,Values=10.18.2.74 --query "Reservations[].Instances[].{InstanceId:[InstanceId,Tags[?Key=='Name']]}"
+aws ec2 describe-instances --filters Name=private-ip-address,Values=10.18.2.74 --query "Reservations[].Instances[].{InstanceName:[InstanceId,Tags[?Key=='Name']]}"
