@@ -1,6 +1,8 @@
 
-aws ec2 describe-instances --filters Name=vpc-id,Values=vpc-1967fa7c Name=instance-type,Values=m5.large --query "Reservations[].Instances[].{InstanceId:[InstanceId,Tags[?Key=='Name'],InstanceType,Platform,Tags[?Key=='centro-custo']]}"
+aws ec2 describe-instances --filters Name=vpc-id,Values=vpc-1967fa7c Name=instance-type,Values=m5.large --query "Reservations[].Instances[].{InstanceName:[InstanceId,Tags[?Key=='Name'],InstanceType,Platform,Tags[?Key=='centro-custo']]}"
 
-aws ec2 describe-instances --filters Name=instance-type,Values=m5.large 				--query "Reservations[].Instances[].{InstanceId:[InstanceId,Tags[?Key=='Name'],InstanceType,Platform,Tags[?Key=='centro-custo']]}"
+aws ec2 describe-instances --filters Name=instance-type,Values=m5.large --query "Reservations[].Instances[].{InstanceName:[InstanceId,Tags[Key=='Name'],InstanceType,Platform,Tags[?Key=='centro-custo']]}"
 
-aws ec2 describe-instances --filters "Name=tag:Name,Values=HISQL*" "Name=instance-state-code,Values=16" --query "Reservations[].Instances[].{InstanceId:[InstanceId,Tags[?Key=='Name'],BlockDeviceMappings[]]}"
+aws ec2 describe-instances --filters "Name=tag:Name,Values=HISQL*" "Name=instance-state-code,Values=16" --query "Reservations[].Instances[].{InstanceName:[InstanceId,Tags[?Key=='Name'],BlockDeviceMappings[]]}"
+
+aws ec2 describe-instances --filters Name=tag:Name,Values=HIMS* --query "Reservations[].Instances[].{InstanceName:[Tags[?Key=='Name']],InstanceType:InstanceType,Platform:Platform}"
