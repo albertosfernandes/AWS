@@ -1,0 +1,52 @@
+---
+schemaVersion: "2.2"
+description: "Command Document for copy and install driver"
+parameters:
+  Foldername:
+    type: "String"
+    description: "Nome do diretorio"
+  Filename:
+    type: "String"
+    description: "Nome do arquivo"
+mainSteps:
+- action: "aws:runPowerShellScript"
+  name: "createdir"
+  inputs:
+    runCommand:
+    - ' $FolderName = "{{ Foldername }}" '
+    - ' try { '
+    - ' if (Test-Path $FolderName) { '
+    - ' Write-Host "Folder Exists" '
+    - ' }'
+    - ' else '
+    - '{'
+    - ' New-Item $FolderName -ItemType Directory '
+    - ' Write-Host "Folder Created successfully" '
+    - '}'
+    - '} catch {'
+    - '  Write-Host  "Failed to create update folder" '
+    - '  Write-Error  $Error[0]  -ErrorAction Continue'
+    - '  exit 42'
+    - '}'
+- action: "aws:runPowerShellScript"
+  name: "copyfile"
+  inputs:
+    runCommand:
+    - ' $Foldername = "{{ Foldername }}" '
+    - ' $Filename = "{{Filename}}"'
+    - ' $Filenamefull = $Foldername + "\" + $Filename '
+    - ' try { '
+    - ' if(Test-Path $Filenamefull) '
+    - ' {' 
+    - ' Write-Host "File Exists"'
+    - ' }'  
+    - ' else' 
+    - ' {'
+    - ' Copy-Item "\\10.18.2.139\d$\inst\Atualizacao-AWS-m6\$Filename" -Destination $Foldername '
+    - ' Write-Host "File Created"'
+    - ' }'
+    - '} catch {'
+    - '  Write-Host  "Failed to copy file" '
+    - '  Write-Error  $Error[0]  -ErrorAction Continue'
+    - '  exit 42'
+    - '}'
