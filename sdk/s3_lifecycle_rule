@@ -1,0 +1,32 @@
+import boto3
+import sys
+
+s3 = boto3.resource('s3')
+
+print(f"Nome do bucket: {sys.argv[1]}")
+
+# Recebe como argumento o nome do bucket
+bucket_lifecycle_configuration = s3.BucketLifecycleConfiguration(f'{sys.argv[1]}')
+
+response = bucket_lifecycle_configuration.put(
+    LifecycleConfiguration={
+        'Rules': [
+            {
+                'ID': 'Move-To-Glacier',
+                'Prefix': '',
+                'Status': 'Enabled',
+                'Transitions': [
+                    {
+                        'Days': 365,
+                        'StorageClass': 'GLACIER'
+                    },
+                    {
+                        'Days': 1825,
+                        'StorageClass': 'DEEP_ARCHIVE'
+                    }
+                ],
+            }
+        ]
+    }
+)
+print(response)
