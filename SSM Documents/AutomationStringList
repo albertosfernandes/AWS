@@ -22,12 +22,13 @@ mainSteps:
       Handler: script_handler
       Script: |-
         from datetime import datetime
-        current_dateTime = datetime.now()
+        current_dateTime = datetime.now().date()
+        today = current_dateTime.strftime(%Y-%m-%d)
         def script_handler(events, context):
           datas_list = events['datas']
           for d in datas_list:
-            print(d)
-            print(current_dateTime)
+            if d == today:
+              print('Datas batem, executa alguma acao' + d)
           return {'message': 'Sucess'}
       InputPayload:
         datas: '{{datas}}'
