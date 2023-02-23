@@ -1,0 +1,33 @@
+description: |-
+  ---
+  # Automação String List
+  Este é um documento de automação com entrada de parâmetros StringList 
+  1. Formato da entrada de parâmetros 
+  * data sendo: yyyy-mm-dd,yyyy-mm-dd
+  > Os parâmetros são separados por vírgula ( , )
+schemaVersion: '0.3'
+parameters:
+  datas:
+    type: StringList
+    description: datas separados por vírgula
+mainSteps:
+  - name: Lista_datas
+    action: 'aws:executeScript'
+    outputs:
+      - Name: message
+        Selector: $.Payload.message
+        Type: String
+    inputs:
+      Runtime: python3.8
+      Handler: script_handler
+      Script: |-
+        from datetime import datetime
+        current_dateTime = datetime.now()
+        def script_handler(events, context):
+          datas_list = events['datas']
+          for d in datas_list:
+            print(d)
+            print(current_dateTime)
+          return {'message': 'Sucess'}
+      InputPayload:
+        datas: '{{datas}}'
