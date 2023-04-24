@@ -1,0 +1,22 @@
+import boto3
+import json
+
+def script_handler(event, context):
+  elbv2_client = boto3.client('elbv2')
+  var_familia = event.get('family_tag')
+  var_ec2 = event.get('instanceid')
+  out= {}
+  
+  response_elbv2 = elbv2_client.describe_target_groups()
+  for tg in response_elbv2['TargetGroups']:
+    alb_name = tg['TargetGroupArn']
+    response_tg = elbv2_client.describe_tags(ResourceArns=[alb_name])
+    for tag in response_tg['TagDescriptions']:
+      tg_name = tag['ResourceArn']
+      for tagname in tag['Tags']:
+        if tagname['Key'] == 'ELBGROUP' and tagname['Value'] == var_familia:
+          response_remove_elb = elbv2_client.deregister_targets(TargetGroupArn=tg_name,Targets=[{'Id': var_ec2}])
+          out = {"Response": response_remove_elb}
+                                        
+              
+  return out
