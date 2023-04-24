@@ -1,0 +1,20 @@
+import boto3
+import json
+
+def script_handler(event, context):
+  elbv2_client = boto3.client('elbv2')
+  var_familia = event.get('family_tag')
+  var_ec2 = event.get('instanceid')
+  out= {}
+  
+  response_elbv2 = elbv2_client.describe_target_groups()
+  for tg in response_elbv2['TargetGroups']:
+    alb_name = tg['TargetGroupArn']
+    response_tg = elbv2_client.describe_tags(ResourceArns=[alb_name])
+    for tag in response_tg['TagDescriptions']:
+      for tagname in tag['Tags']:
+        if tagname['Key'] == 'HIMSGROUP' and tagname['Value'] == var_familia:
+          response_insert_elb = elbv2_client.register_targets(TargetGroupArn=tag['ResourceArn'],Targets=[{'Id': var_ec2}])
+          out = {"Response": response_insert_elb}
+          
+  return out
