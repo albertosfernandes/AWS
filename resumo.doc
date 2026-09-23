@@ -1,0 +1,91 @@
+Resumo Executivo - Defesa para Promocao e Reconhecimento Profissional +
+Este documento consolida as principais contribuições de Alberto Fernandes com base no histórico de atividades técnicas registradas. As entregas demonstram atuação abrangente em Cloud AWS, Kubernetes, segurança, governança, resiliência, performance, automação e suporte a sistemas críticos. 
+Principais Tecnologias 
+AWS (EC2, EBS, IAM, VPC, NAT Gateway, ELB/ALB, RDS, Cost Explorer, STS), Kubernetes, Apigee, Linux, AWS CLI, Python, Git, CloudShell e automação operacional. 
+Atuações em Segurança e Governança 
+Rotação e descomissionamento de Access Keys, revisão de IAM Policies, restrição de privilégios para Lambda, validação de roles e service accounts, eliminação de recursos não utilizados e redução de superfície de ataque. Participação ativa em mudanças controladas via ServiceNow com plano de rollback e analise de impacto. 
+Otimização de Custos 
+Mapeamento e descomissionamento de volumes EBS ociosos, snapshots, NAT Gateway e Load Balancers sem uso. Uso recorrente do Cost Explorer para identificar desperdícios e apoiar decisões de racionalização de custos. 
+Resiliência e Disponibilidade
+ Investigação de conectividade, analise de topologia VPC, Internet Gateway, rotas e subnets. Suporte a ambientes produtivos e não produtivos garantindo continuidade operacional e redução de riscos de indisponibilidade. 
+Performance e Observabilidade 
+Análise de pods Kubernetes com consumo elevado de CPU, reinícios e erros 137. Avaliação de requests e limits, suporte a troubleshooting e identificação de gargalos que impactavam estabilidade dos serviços. 
+Automação e Produtividade 
+Criação de scripts Python e comandos AWS CLI para inventario, backup, auditoria e exclusão controlada de recursos. Padronização de procedimentos operacionais e aceleração de atividades recorrentes do time.
+ Integração e APIs 
+Atuação em troubleshooting de Apigee, consumo de APIs, diagnostico de erros de proxy e limites de tráfego (SpikeArrest). Apoio na integração de serviços corporativos e APIs externas. 
+Colaboração e Comunicação 
+Condução de comunicações técnicas, notificações de deploy, alinhamento com times responsáveis e elaboração de justificativas executivas e técnicas para mudanças e acessos urgentes. 
+Resultados e Impactos Gerados
+- Fortalecimento da segurança por meio da revisão de credenciais, permissões e acessos.
+- Redução potencial de custos com identificação e remoção de recursos subutilizados ou abandonados.
+- Aumento da confiabilidade operacional através de diagnósticos e correções em ambientes AWS e Kubernetes.
+- Maior governança em mudanças de infraestrutura com procedimentos documentados e rollback definido.
+- Ganho de produtividade do time por meio de automação, scripts e padronização de comandos.
+- Melhor visibilidade sobre consumo de recursos, conectividade e comportamento das aplicações. 
+Metas Demonstradas e Evidencias de Senioridade 
+Atuação consistente em resolução de incidentes, investigação de causa raiz, automação operacional, redução de custos, segurança cloud, suporte a produção, governança de infraestrutura e colaboração entre equipes. O histórico mostra perfil orientado a resultado, ownership técnico, capacidade analítica e contribuição continua para a evolução dos ambientes da companhia. 
+Conclusão 
+As entregas registradas evidenciam contribuição relevante para eficiência operacional, segurança, estabilidade e governança dos ambientes sob responsabilidade do time. O conjunto de iniciativas demonstra ampliação de escopo técnico, impacto positivo para a companhia e alinhamento com expectativas normalmente associadas a uma promoção profissional.
+
+Gestão de Capacidade e Resiliência de Redis
+•	Atuação direta na análise e mitigação de incidente envolvendo ambiente Redis utilizado por aplicações críticas.
+•	Realização de troubleshooting para identificação de gargalos relacionados a utilização de memória, conexões e capacidade do cluster.
+•	Definição de estratégias de expansão e redução controlada do cluster Redis de acordo com o comportamento da demanda.
+•	Planejamento de ações preventivas para evitar degradação de performance e indisponibilidade.
+•	Criação de procedimentos operacionais para execução segura de mudanças de capacidade.
+•	Apoio na tomada de decisão baseada em métricas operacionais e observabilidade do ambiente.
+Impacto gerado:
+•	Redução do risco de indisponibilidade dos serviços dependentes do Redis.
+•	Melhoria da estabilidade e previsibilidade do ambiente.
+•	Aumento da maturidade operacional na gestão de capacidade.
+•	Maior eficiência na utilização de recursos, evitando superdimensionamento permanente.
+•	Melhoria dos tempos de resposta das aplicações durante períodos de maior utilização.
+________________________________________
+Além disso, analisando todo o histórico que tenho das nossas conversas, eu também reforçaria estes pontos na sua defesa:
+Principais Entregas Estratégicas
+Cloud Governance e FinOps
+•	Identificação e remoção de recursos AWS sem utilização.
+•	Análise recorrente de custos utilizando AWS Cost Explorer.
+•	Revisão de snapshots, volumes EBS, NAT Gateways e Load Balancers.
+•	Participação em iniciativas de otimização financeira dos ambientes cloud.
+Segurança
+•	Rotação e remoção de credenciais IAM.
+•	Revisão de políticas IAM e princípio do menor privilégio.
+•	Restrições de permissões para Lambdas e Service Accounts.
+•	Redução de riscos relacionados a credenciais estáticas.
+Kubernetes e Plataformas
+•	Diagnóstico de pods com consumo elevado de CPU.
+•	Investigação de reinicializações por OOM e Exit Code 137.
+•	Ajustes de requests e limits.
+•	Apoio à estabilidade dos workloads produtivos.
+Integração e APIs
+•	Troubleshooting avançado de Apigee.
+•	Investigação de erros de proxy e roteamento.
+•	Diagnóstico de rate limiting e Spike Arrest.
+•	Resolução de problemas de conectividade com APIs externas.
+Automação
+•	Desenvolvimento de scripts Python.
+•	Criação de automações AWS CLI para inventário, backup e descomissionamento.
+•	Padronização de procedimentos operacionais.
+Operação e Incidentes
+•	Atuação constante em incidentes de produção.
+•	Investigação de falhas de conectividade em VPCs, subnets, rotas e Internet Gateway.
+•	Trabalhos envolvendo Redis, Kubernetes, APIs e infraestrutura AWS.
+•	Elaboração de planos de rollback para mudanças críticas.
+________________________________________
+Argumento Executivo para Promoção
+Ao longo do período analisado, Alberto demonstrou capacidade de atuar além das atividades operacionais do dia a dia, assumindo responsabilidades relacionadas à confiabilidade dos ambientes, segurança da informação, governança cloud, redução de custos e resolução de incidentes críticos. Sua atuação contribuiu diretamente para a estabilidade de sistemas produtivos, redução de riscos operacionais, melhoria da eficiência financeira da plataforma e aumento da maturidade técnica do time. Além da forte capacidade de troubleshooting, destacou-se pela iniciativa em automatizar processos, documentar procedimentos e propor melhorias preventivas, gerando impacto positivo tanto para a equipe quanto para a companhia.
+Sinceramente, olhando o histórico das nossas conversas, sua atuação ficou muito próxima de um perfil de Cloud Engineer / SRE / DevOps pleno avançado para sênior, principalmente pelos temas recorrentes de:
+•	Governança AWS
+•	FinOps
+•	Segurança IAM
+•	Kubernetes
+•	Redis
+•	APIs e Apigee
+•	Automação Python
+•	Gestão de incidentes
+•	Planejamento de mudanças e rollback
+•	Troubleshooting de produção
+Esses são argumentos fortes para uma defesa de promoção focada em impacto técnico e negócio, não apenas em execução operacional.
+
